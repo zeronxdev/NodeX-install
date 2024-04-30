@@ -156,17 +156,10 @@ cat >>config.yml<<EOF
           ALICLOUD_ACCESS_KEY: aaa
           ALICLOUD_SECRET_KEY: bbb
 EOF
-    
-    #   sed -i "s|ApiHost: \"https://domain.com\"|ApiHost: \"${api_host}\"|" ./config.yml
-    # sed -i "s|ApiKey:.*|ApiKey: \"${ApiKey}\"|"
-    #   sed -i "s|NodeID: 41|NodeID: ${node_id}|" ./config.yml
-    #   sed -i "s|DeviceLimit: 0|DeviceLimit: ${DeviceLimit}|" ./config.yml
-    #   sed -i "s|SpeedLimit: 0|SpeedLimit: ${SpeedLimit}|" ./config.yml
-    #   sed -i "s|CertDomain:\"node1.test.com\"|CertDomain: \"${CertDomain}\"|" ./config.yml
 }
 
 case "${num}" in
-    1) bash <(curl -Ls https://raw.githubusercontent.com/zeronxdev/NodeX-install/install.sh)
+    1) bash <(curl -Ls https://raw.githubusercontent.com/zeronxdev/NodeX-install/main/install.sh)
         openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes -out /etc/NodeX/nodex.crt -keyout /etc/NodeX/nodex.key -subj "/C=JP/ST=Tokyo/L=Chiyoda-ku/O=Google Trust Services LLC/CN=google.com"
         cd /etc/NodeX
   cat >config.yml <<EOF
@@ -193,22 +186,22 @@ EOF
     ;;
     2) cd /etc/NodeX
 cat >config.yml <<EOF
-Log:
-  Level: none # Log level: none, error, warning, info, debug
-  AccessPath: # /etc/NodeX/access.Log
-  ErrorPath: # /etc/NodeX/error.log
-DnsConfigPath: # /etc/NodeX/dns.json # Path to dns config, check https://xtls.github.io/config/dns.html for help
-RouteConfigPath: # /etc/NodeX/route.json # Path to route config, check https://xtls.github.io/config/routing.html for help
-InboundConfigPath: # /etc/NodeX/custom_inbound.json # Path to custom inbound config, check https://xtls.github.io/config/inbound.html for help
-OutboundConfigPath: # /etc/NodeX/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/outbound.html for help
-ConnetionConfig:
-  Handshake: 4 # Handshake time limit, Second
-  ConnIdle: 30 # Connection idle time limit, Second
-  UplinkOnly: 2 # Time limit when the connection downstream is closed, Second
-  DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
-  BufferSize: 64 # The internal cache size of each connection, kB
-Nodes:
-EOF    
+    Log:
+      Level: none # Log level: none, error, warning, info, debug
+      AccessPath: # /etc/NodeX/access.Log
+      ErrorPath: # /etc/NodeX/error.log
+    DnsConfigPath: # /etc/NodeX/dns.json # Path to dns config, check https://xtls.github.io/config/dns.html for help
+    RouteConfigPath: # /etc/NodeX/route.json # Path to route config, check https://xtls.github.io/config/routing.html for help
+    InboundConfigPath: # /etc/NodeX/custom_inbound.json # Path to custom inbound config, check https://xtls.github.io/config/inbound.html for help
+    OutboundConfigPath: # /etc/NodeX/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/outbound.html for help
+    ConnetionConfig:
+      Handshake: 4 # Handshake time limit, Second
+      ConnIdle: 30 # Connection idle time limit, Second
+      UplinkOnly: 2 # Time limit when the connection downstream is closed, Second
+      DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
+      BufferSize: 64 # The internal cache size of each connection, kB
+    Nodes:
+EOF
         install
         cd /root
         nodex restart
