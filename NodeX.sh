@@ -6,6 +6,8 @@ read -p "  Chọn tính năng và nhấn Enter (Mặc định là Cài đặt): 
 [ -z "${num}" ] && num="1"
 
 install(){
+    ufw allow 80
+    ufw allow 443
     clear
     read -p " Nhập URL website (Không có https://): " api_host
     [ -z "${api_host}" ] && api_host=0
