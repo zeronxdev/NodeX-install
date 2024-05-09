@@ -172,7 +172,7 @@ cat >>config.yml<<EOF
       CertConfig:
         CertMode: file # Option about how to get certificate: none, file, http, tls, dns. Choose "none" will forcedly disable the tls config.
         CertDomain: "8.8.8.8" # Domain to cert
-        CertFile: /etc/NodeX/nodex.cert # Provided if the CertMode is file
+        CertFile: /etc/NodeX/nodex.crt # Provided if the CertMode is file
         KeyFile: /etc/NodeX/nodex.key
         Provider: alidns # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
         Email: test@me.com
@@ -184,6 +184,7 @@ EOF
 
 case "${num}" in
     1) bash <(curl -Ls https://raw.githubusercontent.com/zeronxdev/NodeX-install/main/install.sh)
+        openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes -out /etc/NodeX/nodex.crt -keyout /etc/NodeX/nodex.key -subj "/C=JP/ST=Tokyo/L=Chiyoda-ku/O=Google Trust Services LLC/CN=google.com"
         cd /etc/NodeX
   cat >config.yml <<EOF
 Log:
@@ -203,7 +204,6 @@ ConnectionConfig:
 Nodes:
 EOF
         install
-        openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes -out /etc/NodeX/nodex.crt -keyout /etc/NodeX/nodex.key -subj "/C=JP/ST=Tokyo/L=Chiyoda-ku/O=Google Trust Services LLC/CN=google.com"
         cd /root
         nodex start
     ;;
@@ -226,7 +226,6 @@ cat >config.yml <<EOF
     Nodes:
 EOF
         install
-        openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes -out /etc/NodeX/nodex.crt -keyout /etc/NodeX/nodex.key -subj "/C=JP/ST=Tokyo/L=Chiyoda-ku/O=Google Trust Services LLC/CN=google.com"
         cd /root
         nodex restart
     ;;
