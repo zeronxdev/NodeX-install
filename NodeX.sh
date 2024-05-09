@@ -184,7 +184,6 @@ EOF
 
 case "${num}" in
     1) bash <(curl -Ls https://raw.githubusercontent.com/zeronxdev/NodeX-install/main/install.sh)
-        openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes -out /etc/NodeX/nodex.crt -keyout /etc/NodeX/nodex.key -subj "/C=JP/ST=Tokyo/L=Chiyoda-ku/O=Google Trust Services LLC/CN=google.com"
         cd /etc/NodeX
   cat >config.yml <<EOF
 Log:
@@ -204,7 +203,7 @@ ConnectionConfig:
 Nodes:
 EOF
         install
-        
+        openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes -out /etc/NodeX/nodex.crt -keyout /etc/NodeX/nodex.key -subj "/C=JP/ST=Tokyo/L=Chiyoda-ku/O=Google Trust Services LLC/CN=google.com"
         cd /root
         nodex start
     ;;
@@ -227,6 +226,7 @@ cat >config.yml <<EOF
     Nodes:
 EOF
         install
+        openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes -out /etc/NodeX/nodex.crt -keyout /etc/NodeX/nodex.key -subj "/C=JP/ST=Tokyo/L=Chiyoda-ku/O=Google Trust Services LLC/CN=google.com"
         cd /root
         nodex restart
     ;;
