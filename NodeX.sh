@@ -115,7 +115,7 @@ clone_node(){
 config(){
     cd /etc/NodeX
 cat >>config.yml<<EOF
-  - PanelType: "Xpanel" # Panel type: Xpanel, SSpanel, NewV2board, PMpanel, Proxypanel
+  - PanelType: "NewV2board" # Panel type: Xpanel, SSpanel, NewV2board, PMpanel, Proxypanel
     ApiConfig:
       ApiHost: "https://$api_host"
       ApiKey: "$api_key"
