@@ -7,13 +7,13 @@ read -p "  Chọn tính năng và nhấn Enter (Mặc định là Cài đặt): 
 
 install(){
     clear
-    read -p " Nhập URL website (Không có https://):" api_host
+    read -p " Nhập URL website (Không có https://): " api_host
     [ -z "${api_host}" ] && api_host=0
     echo "--------------------------------"
     echo "URL website: https://${api_host}"
     echo "--------------------------------"
     #key web
-    read -p " Nhập API KEY :" api_key
+    read -p " Nhập API KEY: " api_key
     [ -z "${api_key}" ] && api_key=0
     echo "--------------------------------"
     echo "API KEY: ${api_key}"
@@ -70,13 +70,13 @@ pre_install(){
 clone_node(){
     clear
     #link web
-    read -p " Nhập URL website (Không có https://):" api_host
+    read -p " Nhập URL website (Không có https://): " api_host
     [ -z "${api_host}" ] && api_host=0
     echo "--------------------------------"
     echo "URL website: https://${api_host}"
     echo "--------------------------------"
     #key web
-    read -p " Nhập API KEY :" api_key
+    read -p " Nhập API KEY: " api_key
     [ -z "${api_key}" ] && api_key=0
     echo "--------------------------------"
     echo "API KEY: ${api_key}"
