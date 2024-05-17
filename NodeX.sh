@@ -60,8 +60,6 @@ pre_install(){
         read -p "ID Node:" node_id
         [ -z "${node_id}" ] && node_id=0
         echo "-------------------------------"
-        echo -e "ID Node: ${node_id}"
-        echo "-------------------------------"
         
         config
         a=$((a+1))
@@ -106,8 +104,6 @@ clone_node(){
     #node id
     read -p "ID Node:" node_id
     [ -z "${node_id}" ] && node_id=0
-    echo "-------------------------------"
-    echo -e "ID Node: ${node_id}"
     echo "-------------------------------"
     config
 }
