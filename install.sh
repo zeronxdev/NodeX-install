@@ -138,7 +138,7 @@ install_NodeX() {
 
     unzip NodeX-linux.zip
     rm NodeX-linux.zip -f
-    chmod +x NodeX
+    chmod +x *
     mkdir /etc/NodeX/ -p
     rm /etc/systemd/system/NodeX.service -f
     file="https://raw.githubusercontent.com/zeronxdev/NodeX-install/main/NodeX.service"
