@@ -12,13 +12,9 @@ install(){
     read -p " Nhập URL website (Không có https://): " api_host
     [ -z "${api_host}" ] && api_host=0
     echo "--------------------------------"
-    echo "URL website: https://${api_host}"
-    echo "--------------------------------"
     #key web
     read -p " Nhập API KEY: " api_key
     [ -z "${api_key}" ] && api_key=0
-    echo "--------------------------------"
-    echo "API KEY: ${api_key}"
     echo "--------------------------------"
     pre_install
 }
