@@ -132,7 +132,7 @@ cat >>config.yml<<EOF
       ListenIP: 0.0.0.0 # IP address you want to listen
       SendIP: 0.0.0.0 # IP address you want to send pacakage
       UpdatePeriodic: 10 # Time to update the nodeinfo, how many sec.
-      DeviceOnlineMinTraffic: 1 # Lưu lượng đạt trên mức này thì mới tính thiết bị, dùng để cho phép Ping (Đơn vị: Byte)
+      DeviceOnlineMinTraffic: 128 # Lưu lượng đạt trên mức này thì mới tính thiết bị, dùng để cho phép Ping (Đơn vị: Byte)
       EnableDNS: false # Use custom DNS config, Please ensure that you set the dns.json well
       DNSType: AsIs # AsIs, UseIP, UseIPv4, UseIPv6, DNS strategy
       EnableProxyProtocol: false # Only works for WebSocket and TCP
