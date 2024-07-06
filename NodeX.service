@@ -12,7 +12,7 @@ LimitRSS=infinity
 LimitCORE=infinity
 LimitNOFILE=999999
 WorkingDirectory=/usr/local/NodeX/
-ExecStart=/usr/local/NodeX/XrayR --config /etc/NodeX/config.yml
+ExecStart=/usr/local/NodeX/NodeX --config /etc/NodeX/config.yml
 Restart=on-failure
 RestartSec=10
 
