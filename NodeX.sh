@@ -131,7 +131,7 @@ cat >>config.yml<<EOF
       EnableProxyProtocol: false 
       CertConfig:
         CertMode: file
-        CertDomain: "8.8.8.8"
+        CertDomain: "google.com"
         CertFile: /etc/NodeX/nodex.crt 
         KeyFile: /etc/NodeX/nodex.key
         Provider: cloudflare
@@ -157,7 +157,7 @@ InboundConfigPath: # /etc/NodeX/custom_inbound.json # Path to custom inbound con
 OutboundConfigPath: # /etc/NodeX/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/outbound.html for help
 ConnectionConfig:
   Handshake: 3 
-  ConnIdle: 1000 
+  ConnIdle: 100 
   UplinkOnly: 2 
   DownlinkOnly: 4
   BufferSize: 64 
@@ -179,7 +179,7 @@ cat >config.yml <<EOF
     OutboundConfigPath: # /etc/NodeX/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/outbound.html for help
     ConnetionConfig:
       Handshake: 3 
-      ConnIdle: 1000 
+      ConnIdle: 100
       UplinkOnly: 2 
       DownlinkOnly: 4 
       BufferSize: 64 
