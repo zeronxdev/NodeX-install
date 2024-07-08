@@ -81,7 +81,7 @@ clone_node(){
     echo -e "[1] Vmess"
     echo -e "[2] Vless"
     echo -e "[3] Trojan"
-    read -p "Chọn giao thức node (Mặc định là Vmess):" NodeType
+    read -p "Chọn giao thức (Mặc định là Vmess):" NodeType
     if [ "$NodeType" == "1" ]; then
         NodeType="V2ray"
         EnableVless="false"
@@ -115,6 +115,7 @@ cat >>config.yml<<EOF
       NodeType: $NodeType # Node type: V2ray, Shadowsocks, Trojan, Shadowsocks-Plugin
       Timeout: 30 
       EnableVless: $EnableVless 
+      EnableXTLS: false
       SpeedLimit: 0 
       DeviceLimit: 0 
       RuleListPath: # /etc/NodeX/rulelist 
@@ -124,45 +125,10 @@ cat >>config.yml<<EOF
       ListenIP: 0.0.0.0 
       SendIP: 0.0.0.0 
       UpdatePeriodic: 10 
-      DeviceOnlineMinTraffic: 128 
+      DeviceOnlineMinTraffic: 1024 
       EnableDNS: false 
       DNSType: AsIs 
       EnableProxyProtocol: false 
-      AutoSpeedLimitConfig:
-        Limit: 0 
-        WarnTimes: 0 
-        LimitSpeed: 0 
-        LimitDuration: 0 
-      GlobalDeviceLimitConfig:
-        Enable: false 
-        RedisNetwork: tcp 
-        RedisAddr: 127.0.0.1:6379 
-        RedisUsername: 
-        RedisPassword: YOUR PASSWORD 
-        RedisDB: 0 
-        Timeout: 5 
-        Expiry: 60 
-      EnableFallback: false 
-      FallBackConfigs: 
-        - SNI: 
-          Alpn: 
-          Path: 
-          Dest: 80 
-          ProxyProtocolVer: 0 
-      EnableREALITY: false 
-      DisableLocalREALITYConfig: false 
-      REALITYConfigs: 
-        Show: false 
-        Dest: m.media-amazon.com:443 
-        ProxyProtocolVer: 0 
-        ServerNames: 
-          - m.media-amazon.com
-        PrivateKey: 
-        MinClientVer: 
-        MaxClientVer: 
-        MaxTimeDiff: 0 
-        ShortIds:
-          - ""
       CertConfig:
         CertMode: file
         CertDomain: "8.8.8.8"
@@ -186,12 +152,12 @@ Log:
   AccessPath: # /etc/NodeX/access.Log
   ErrorPath: # /etc/NodeX/error.log
 DnsConfigPath: # /etc/NodeX/dns.json # Path to dns config, check https://xtls.github.io/config/dns.html for help
-RouteConfigPath: /etc/NodeX/route.json # Path to route config, check https://xtls.github.io/config/routing.html for help
+RouteConfigPath: # /etc/NodeX/route.json # Path to route config, check https://xtls.github.io/config/routing.html for help
 InboundConfigPath: # /etc/NodeX/custom_inbound.json # Path to custom inbound config, check https://xtls.github.io/config/inbound.html for help
-OutboundConfigPath: /etc/NodeX/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/outbound.html for help
+OutboundConfigPath: # /etc/NodeX/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/outbound.html for help
 ConnectionConfig:
-  Handshake: 4 # Handshake time limit, Second
-  ConnIdle: 30 # Connection idle time limit, Second
+  Handshake: 3 # Handshake time limit, Second
+  ConnIdle: 1000 # Connection idle time limit, Second
   UplinkOnly: 2 # Time limit when the connection downstream is closed, Second
   DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
   BufferSize: 64 # The internal cache size of each connection, kB
@@ -212,8 +178,8 @@ cat >config.yml <<EOF
     InboundConfigPath: # /etc/NodeX/custom_inbound.json # Path to custom inbound config, check https://xtls.github.io/config/inbound.html for help
     OutboundConfigPath: # /etc/NodeX/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/outbound.html for help
     ConnetionConfig:
-      Handshake: 4 # Handshake time limit, Second
-      ConnIdle: 30 # Connection idle time limit, Second
+      Handshake: 3 # Handshake time limit, Second
+      ConnIdle: 1000 # Connection idle time limit, Second
       UplinkOnly: 2 # Time limit when the connection downstream is closed, Second
       DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
       BufferSize: 64 # The internal cache size of each connection, kB
