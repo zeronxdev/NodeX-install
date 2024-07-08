@@ -148,7 +148,7 @@ case "${num}" in
         cd /etc/NodeX
   cat >config.yml <<EOF
 Log:
-  Level: warning # Log level: none, error, warning, info, debug
+  Level: none # Log level: none, error, warning, info, debug
   AccessPath: # /etc/NodeX/access.Log
   ErrorPath: # /etc/NodeX/error.log
 DnsConfigPath: # /etc/NodeX/dns.json # Path to dns config, check https://xtls.github.io/config/dns.html for help
@@ -156,11 +156,11 @@ RouteConfigPath: # /etc/NodeX/route.json # Path to route config, check https://x
 InboundConfigPath: # /etc/NodeX/custom_inbound.json # Path to custom inbound config, check https://xtls.github.io/config/inbound.html for help
 OutboundConfigPath: # /etc/NodeX/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/outbound.html for help
 ConnectionConfig:
-  Handshake: 3 # Handshake time limit, Second
-  ConnIdle: 1000 # Connection idle time limit, Second
-  UplinkOnly: 2 # Time limit when the connection downstream is closed, Second
-  DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
-  BufferSize: 64 # The internal cache size of each connection, kB
+  Handshake: 3 
+  ConnIdle: 1000 
+  UplinkOnly: 2 
+  DownlinkOnly: 4
+  BufferSize: 64 
 Nodes:
 EOF
         install
@@ -178,11 +178,11 @@ cat >config.yml <<EOF
     InboundConfigPath: # /etc/NodeX/custom_inbound.json # Path to custom inbound config, check https://xtls.github.io/config/inbound.html for help
     OutboundConfigPath: # /etc/NodeX/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/outbound.html for help
     ConnetionConfig:
-      Handshake: 3 # Handshake time limit, Second
-      ConnIdle: 1000 # Connection idle time limit, Second
-      UplinkOnly: 2 # Time limit when the connection downstream is closed, Second
-      DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
-      BufferSize: 64 # The internal cache size of each connection, kB
+      Handshake: 3 
+      ConnIdle: 1000 
+      UplinkOnly: 2 
+      DownlinkOnly: 4 
+      BufferSize: 64 
     Nodes:
 EOF
         install
