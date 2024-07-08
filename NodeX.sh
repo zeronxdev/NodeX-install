@@ -125,7 +125,7 @@ cat >>config.yml<<EOF
       ListenIP: 0.0.0.0 
       SendIP: 0.0.0.0 
       UpdatePeriodic: 10 
-      DeviceOnlineMinTraffic: 1024 
+      DeviceOnlineMinTraffic: 100 
       EnableDNS: false 
       DNSType: AsIs 
       EnableProxyProtocol: false 
